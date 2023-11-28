@@ -1,30 +1,43 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 /// <summary>
 /// Responsible for moving the player automatically and receiving input.
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
 public class PlayerBehaviour : MonoBehaviour
 {
-    private Rigidbody rb;
-
-    [Tooltip("How fast the ball moves left/right")]
-    public float dodgeSpeed = 5;
-
-    [Tooltip("How fast the ball moves forwards automatically")]
-    [Range(0,10)]
-    public float rollSpeed = 5;
+    [SerializeField]
+    Transform projectile;
+    [SerializeField]
+    float cooldownCount;
+    float shootCooldown;
+    int positionIndex = 0;  
+    bool turn;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        Input.multiTouchEnabled = false;
+        shootCooldown = cooldownCount;
     }
 
-
-    void FixedUpdate()
+    void Update()
     {
-        // Side-to-side movement
-        var horizontalSpeed = Input.GetAxis("Horizontal") * dodgeSpeed;
-        rb.AddForce(horizontalSpeed, 0, rollSpeed);
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        {
+            if (Mathf.Abs(positionIndex) == 2)
+                turn = !turn;
+            positionIndex = turn ? positionIndex -1 : positionIndex+1;
+            gameObject.transform.position = Vector3.right * positionIndex;
+        }
+        if (shootCooldown > 0)
+            shootCooldown -= Time.deltaTime;
+        else
+        {
+            shootCooldown = cooldownCount;
+            Shoot();
+        }
     }
+
+    void Shoot() => Instantiate(projectile, transform.position, Quaternion.identity);
+    
 }
