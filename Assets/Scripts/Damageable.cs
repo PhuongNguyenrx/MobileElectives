@@ -10,7 +10,6 @@ public class Damageable : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] Material damagedMaterial;
     [SerializeField] Material originalMaterial;
-    private void OnBecameInvisible() => Destroy(gameObject);
     private void Update()
     {
         if (health <= 0)
