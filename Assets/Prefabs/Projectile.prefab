@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   bulletDamage: 10
+  cooldownCount: 0.2
 --- !u!54 &-5711577197201328016
 Rigidbody:
   m_ObjectHideFlags: 0

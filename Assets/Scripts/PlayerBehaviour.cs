@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -7,37 +7,27 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
-    Transform projectile;
-    [SerializeField]
-    float cooldownCount;
-    float shootCooldown;
-    int positionIndex = 0;  
-    bool turn;
+    List<Projectile> projectiles;
+    MovementController movementController;
+    public List<ShootController> shootControllers = new();
 
     void Start()
     {
         Input.multiTouchEnabled = false;
-        shootCooldown = cooldownCount;
+        movementController = new MovementController(transform);
+        foreach (var t in projectiles)
+        {
+            shootControllers.Add(new ShootController(t,transform));
+        }
     }
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        movementController.HandleMovementInput();
+        foreach(var shootController in shootControllers)
         {
-            if (Mathf.Abs(positionIndex) == 2)
-                turn = !turn;
-            positionIndex = turn ? positionIndex -1 : positionIndex+1;
-            gameObject.transform.position = Vector3.right * positionIndex;
-        }
-        if (shootCooldown > 0)
-            shootCooldown -= Time.deltaTime;
-        else
-        {
-            shootCooldown = cooldownCount;
-            Shoot();
+            shootController.ShootCountdown();
         }
     }
-
-    void Shoot() => Instantiate(projectile, transform.position, Quaternion.identity);
     
 }

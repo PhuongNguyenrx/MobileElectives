@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     float bulletSpeed;
     public float bulletDamage;
+    public float cooldownCount;
     private void FixedUpdate()
     {
         transform.position += Vector3.up * bulletSpeed * Time.deltaTime;
