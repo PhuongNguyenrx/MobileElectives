@@ -7,7 +7,6 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     public float health;
-    [SerializeField] float moveSpeed;
     [SerializeField] Material damagedMaterial;
     [SerializeField] Material originalMaterial;
     private void Update()
@@ -16,7 +15,6 @@ public class Damageable : MonoBehaviour
             Destroy(gameObject);
     }
     
-    protected void Move(Vector3 dir) => transform.position += dir * moveSpeed * Time.deltaTime;
     public void Damaged(float damage)
     {
         health -= damage;

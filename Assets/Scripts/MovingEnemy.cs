@@ -1,12 +1,15 @@
 using UnityEngine;
 using System;
 
-public class EnemyBehaviour : Damageable
+public class MovingEnemy : Damageable
 {
     [SerializeField] float directionChangeInterval;
+    [SerializeField] float moveSpeed;
     Vector3 movementDirection;
+    MovementController movementController;
     private void Start()
     {
+        movementController = new MovementController(transform);
         CalculateDirection();
     }
     private void FixedUpdate()
@@ -16,7 +19,7 @@ public class EnemyBehaviour : Damageable
             Destroy(gameObject);
         if (Time.time % directionChangeInterval == 0 || (screenPosition.y >= Screen.height) || (screenPosition.x >= Screen.width) || (screenPosition.x <= 0f))
             CalculateDirection();
-        Move(movementDirection);
+        movementController.DirectionalMove(movementDirection, moveSpeed);
     }
 
     private void CalculateDirection()

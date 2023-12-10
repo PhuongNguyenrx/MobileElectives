@@ -22,4 +22,5 @@ public class MovementController
     {
         ownerTransform.position = position;
     }
+    public void DirectionalMove(Vector3 dir, float moveSpeed) => ownerTransform.position += dir * moveSpeed * Time.deltaTime;
 }

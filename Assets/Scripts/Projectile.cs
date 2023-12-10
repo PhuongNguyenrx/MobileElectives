@@ -18,9 +18,9 @@ public class Projectile : MonoBehaviour
     }
         private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Damageable>())
+        if (collision.gameObject.TryGetComponent<Damageable>(out Damageable damageable))
         {
-            collision.gameObject.GetComponent<Damageable>().Damaged(bulletDamage);
+            damageable.Damaged(bulletDamage);
             Destroy(gameObject);
         }
     }
