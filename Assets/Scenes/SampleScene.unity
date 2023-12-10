@@ -362,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 570539f447ea65a409f29e91bb6fb5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7812416445972813307, guid: 386443e0721712a4abd4eef2d09a6a77, type: 3}
-  cooldownCount: 0.5
+  projectiles:
+  - {fileID: 7812416445972813307, guid: 386443e0721712a4abd4eef2d09a6a77, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

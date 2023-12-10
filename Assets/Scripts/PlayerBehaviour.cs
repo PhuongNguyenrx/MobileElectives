@@ -7,9 +7,9 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField]
-    List<Projectile> projectiles;
+    List<Transform> projectiles;
+    List<ShootController> shootControllers = new();
     MovementController movementController;
-    public List<ShootController> shootControllers = new();
 
     void Start()
     {
@@ -17,7 +17,7 @@ public class PlayerBehaviour : MonoBehaviour
         movementController = new MovementController(transform);
         foreach (var t in projectiles)
         {
-            shootControllers.Add(new ShootController(t,transform));
+            shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform));
         }
     }
 
