@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]
-    float bulletSpeed;
+    public float bulletSpeed;
     public float bulletDamage;
     public float cooldownCount;
     private void FixedUpdate()

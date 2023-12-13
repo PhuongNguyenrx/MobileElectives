@@ -2,12 +2,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Responsible for moving the player automatically and receiving input.
+/// Responsible for player things.
 /// </summary>
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    List<Transform> projectiles;
+    [SerializeField] List<Transform> projectiles;
+    [SerializeField] float health = 100;
     List<ShootController> shootControllers = new();
     MovementController movementController;
 
@@ -30,4 +30,27 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
     
+    public void IncreaseDamage(float damageToIncrease)
+    {
+        foreach(var shootController in shootControllers)
+        {
+            shootController.IncreaseDamage(damageToIncrease);
+        }
+    }
+
+    public void IncreaseSpeed(float speedToIncrease)
+    {
+        foreach (var shootController in shootControllers)
+        {
+            shootController.IncreaseSpeed(speedToIncrease);
+        }
+    }
+    public void ReduceReload(float reloadTime)
+    {
+        foreach (var shootController in shootControllers)
+        {
+            shootController.ReduceReload(reloadTime);
+        }
+    }
+    public void IncreaseHealth(float healthToIncrease) => health += healthToIncrease;
 }

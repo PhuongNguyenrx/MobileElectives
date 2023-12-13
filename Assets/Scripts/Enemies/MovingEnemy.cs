@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-public class MovingEnemy : Damageable
+public class MovingEnemy : Lootable
 {
     [SerializeField] float directionChangeInterval;
     [SerializeField] float moveSpeed;

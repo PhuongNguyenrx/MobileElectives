@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class ShootController
@@ -26,6 +27,11 @@ public class ShootController
         }
     }
 
+    public void IncreaseDamage(float damageToIncrease) => projectile.bulletDamage += damageToIncrease; //TODO: dont change original prefab
+
+    public void IncreaseSpeed(float speedToIncrease) => projectile.bulletSpeed += speedToIncrease;
+
+    public void ReduceReload(float reloadTime) => projectile.cooldownCount += reloadTime;
     void Shoot()
     {
         GameObject.Instantiate(projectile, ownerObject.position, Quaternion.identity);
