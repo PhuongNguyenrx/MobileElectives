@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
         if (Screen.width <= screenPosition.x || screenPosition.x <= 0 || Screen.height <= screenPosition.y || screenPosition.y <= 0)
             Destroy(gameObject);
     }
-        private void OnCollisionEnter(Collision collision)
+        private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.TryGetComponent<Damageable>(out Damageable damageable))
         {

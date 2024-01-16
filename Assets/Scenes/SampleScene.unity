@@ -245,7 +245,7 @@ Transform:
   m_GameObject: {fileID: 947258420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.649, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectiles:
-  - {fileID: 7812416445972813307, guid: c9b6afd4ffec9314d9d36f3980ba592e, type: 3}
+  - {fileID: 7812416445972813307, guid: 386443e0721712a4abd4eef2d09a6a77, type: 3}
   health: 100
 --- !u!61 &947258427
 BoxCollider2D:
@@ -424,7 +424,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -492,7 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6543422848882811311, guid: 0867953aef4b26e469cd62fc44cc770c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9
+      value: 8.572
       objectReference: {fileID: 0}
     - target: {fileID: 6543422848882811311, guid: 0867953aef4b26e469cd62fc44cc770c, type: 3}
       propertyPath: m_LocalPosition.z

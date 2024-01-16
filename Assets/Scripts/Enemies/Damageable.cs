@@ -19,7 +19,7 @@ public class Damageable : MonoBehaviour
             Die();
             return;
         }
-        StartCoroutine(FlashDamage());
+        //StartCoroutine(FlashDamage());
     }
 
     public virtual void Die()
