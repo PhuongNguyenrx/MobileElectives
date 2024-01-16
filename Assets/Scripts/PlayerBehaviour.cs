@@ -8,13 +8,14 @@ public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] List<Transform> projectiles;
     [SerializeField] float health = 100;
+    [SerializeField] float speed = 5;
     List<ShootController> shootControllers = new();
     MovementController movementController;
 
     void Start()
     {
         Input.multiTouchEnabled = false;
-        movementController = new MovementController(transform);
+        movementController = new MovementController(transform,speed);
         foreach (var t in projectiles)
         {
             shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform));
