@@ -24,6 +24,8 @@ public class Damageable : MonoBehaviour
 
     public virtual void Die()
     {
+        GameManager.Instance.enemyOnScreen.Remove(transform);
+        GameManager.Instance.EnemyCheck();
         Destroy(gameObject);
     }
     IEnumerator FlashDamage()

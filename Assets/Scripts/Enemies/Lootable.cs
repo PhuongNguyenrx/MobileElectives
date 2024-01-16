@@ -10,9 +10,14 @@ public class Lootable : Damageable
 
     public override void Die()
     {
-        var droppedItem = GetDroppedItem();
-        if (droppedItem != null)
-            Instantiate(droppedItem.gameObject, transform.position, Quaternion.identity);
+        if (health <= 0)
+        {
+            var droppedItem = GetDroppedItem();
+            if (droppedItem != null)
+                Instantiate(droppedItem.gameObject, transform.position, Quaternion.identity);
+        }
+        GameManager.Instance.enemyOnScreen.Remove(transform);
+        GameManager.Instance.EnemyCheck();
         Destroy(gameObject);
     }
 
