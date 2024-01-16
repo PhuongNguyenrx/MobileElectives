@@ -5,22 +5,27 @@ using UnityEngine;
 public class MovementController 
 {
     Transform ownerTransform;
-    public MovementController(Transform transform) => this.ownerTransform = transform;
+    float moveSpeed;
+    public MovementController(Transform transform, float speed)
+    {
+        this.ownerTransform = transform;
+        this.moveSpeed = speed;
+    }
     public void HandleMovementInput()
     {
-        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+        if (Input.touchCount > 0)
         {
-            var touch = Input.GetTouch(0);
-            Vector3 targetPosition = (touch.position.x < Screen.width / 2) ?
-                ownerTransform.position - Vector3.right : ownerTransform.position + Vector3.right;
-            targetPosition = new Vector3(Mathf.Clamp(targetPosition.x, -2, 2),targetPosition.y,targetPosition.z);
-            if (targetPosition != ownerTransform.position)
-                Move(targetPosition);
+            Touch touch = Input.GetTouch(0);
+            if (touch.phase == TouchPhase.Moved)
+            {
+                Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 10));
+                Move(touchPosition);
+            }
         }
     }
-    public void Move(Vector3 position)
+    public void Move(Vector3 destination)
     {
-        ownerTransform.position = position;
+        ownerTransform.position =   Vector3.MoveTowards(ownerTransform.position, destination,2*Time.deltaTime);
     }
-    public void DirectionalMove(Vector3 dir, float moveSpeed) => ownerTransform.position += dir * moveSpeed * Time.deltaTime;
+    public void DirectionalMove(Vector3 dir) => ownerTransform.position += dir * moveSpeed * Time.deltaTime;
 }

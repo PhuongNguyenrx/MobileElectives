@@ -9,7 +9,7 @@ public class MovingEnemy : Lootable
     MovementController movementController;
     private void Start()
     {
-        movementController = new MovementController(transform);
+        movementController = new MovementController(transform, moveSpeed);
         CalculateDirection();
     }
     private void FixedUpdate()
@@ -19,7 +19,7 @@ public class MovingEnemy : Lootable
             Die();
         if (Time.time % directionChangeInterval == 0 || (screenPosition.y >= Screen.height) || (screenPosition.x >= Screen.width) || (screenPosition.x <= 0f))
             CalculateDirection();
-        movementController.DirectionalMove(movementDirection, moveSpeed);
+        movementController.DirectionalMove(movementDirection);
     }
 
     private void CalculateDirection()

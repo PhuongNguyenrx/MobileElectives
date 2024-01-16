@@ -22,16 +22,15 @@ public class ShootController
             shootCooldown -= Time.deltaTime;
         else
         {
-            shootCooldown = cooldownCount;
+            shootCooldown = cooldownCount - projectile.powerup.reloadBoost;
             Shoot();
         }
     }
 
-    public void IncreaseDamage(float damageToIncrease) => projectile.bulletDamage += damageToIncrease; //TODO: dont change original prefab
+    public void IncreaseDamage(float damageToIncrease)=>projectile.powerup.damageBoost += damageToIncrease;
+    public void IncreaseSpeed(float speedToIncrease)=>projectile.powerup.speedBoost += speedToIncrease;
 
-    public void IncreaseSpeed(float speedToIncrease) => projectile.bulletSpeed += speedToIncrease;
-
-    public void ReduceReload(float reloadTime) => projectile.cooldownCount += reloadTime;
+    public void ReduceReload(float reloadTime) => projectile.powerup.reloadBoost += reloadTime;
     void Shoot()
     {
         GameObject.Instantiate(projectile, ownerObject.position, Quaternion.identity);

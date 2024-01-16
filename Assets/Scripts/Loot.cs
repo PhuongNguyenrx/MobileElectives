@@ -27,7 +27,7 @@ public class Loot: MonoBehaviour
                     playerBehaviour.IncreaseHealth(addedStats);
                     break;
                 case LootEffect.reduceReload:
-                    playerBehaviour.ReduceReload(-addedStats);
+                    playerBehaviour.ReduceReload(addedStats);
                     break;
                 default:
                     break;
