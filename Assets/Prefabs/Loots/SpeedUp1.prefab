@@ -172,5 +172,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropChance: 100
-  addedStats: 20
-  lootEffect: 0
+  addedStats: 1
+  lootEffect: 1

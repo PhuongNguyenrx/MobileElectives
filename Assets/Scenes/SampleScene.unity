@@ -266,6 +266,7 @@ MonoBehaviour:
   projectiles:
   - {fileID: 7812416445972813307, guid: 386443e0721712a4abd4eef2d09a6a77, type: 3}
   health: 100
+  speed: 5
 --- !u!61 &947258427
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -485,7 +486,7 @@ PrefabInstance:
     - target: {fileID: 5733106388141005718, guid: 0867953aef4b26e469cd62fc44cc770c, type: 3}
       propertyPath: possibleLoots.Array.data[0]
       value: 
-      objectReference: {fileID: -721414600731160017, guid: d89839b2184d4d24e963e07ad596f799, type: 3}
+      objectReference: {fileID: -721414600731160017, guid: 50c9179116bfff940b41c62c06c8d36a, type: 3}
     - target: {fileID: 6543422848882811311, guid: 0867953aef4b26e469cd62fc44cc770c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
