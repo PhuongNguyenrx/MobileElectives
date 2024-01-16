@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 [Serializable]
 
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Collider2D))]
 public class Loot: MonoBehaviour
 {
     public float dropChance;

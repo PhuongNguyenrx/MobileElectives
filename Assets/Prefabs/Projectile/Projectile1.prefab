@@ -9,10 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7812416445972813307}
-  - component: {fileID: 4161198918041578565}
-  - component: {fileID: 4862862871259875165}
-  - component: {fileID: 1547316753865397005}
-  - component: {fileID: -5711577197201328016}
+  - component: {fileID: 2583482856423079399}
+  - component: {fileID: 5544988806583487038}
   - component: {fileID: 5991148583875748753}
   m_Layer: 0
   m_Name: Projectile1
@@ -36,35 +34,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4161198918041578565
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795806937751963635}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &4862862871259875165
-MeshRenderer:
+--- !u!212 &2583482856423079399
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6795806937751963635}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4861f44a32bb114a9ba737948e4a432, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +67,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -85,14 +75,33 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1547316753865397005
-SphereCollider:
+  m_Sprite: {fileID: 21300000, guid: 73f824565b46cff46bd8ecf339c05f64, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.13, y: 0.37}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!50 &5544988806583487038
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6795806937751963635}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -100,40 +109,10 @@ SphereCollider:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &-5711577197201328016
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6795806937751963635}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_SleepingMode: 1
   m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &5991148583875748753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7223d904f3e63204c928075f7a0de81e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stats:
-    bulletSpeed: 5
-    bulletDamage: 10
-  modifiedStats:
-    bulletSpeed: 0
-    bulletDamage: 0
+  bulletSpeed: 0
+  bulletDamage: 0
   cooldownCount: 0.3

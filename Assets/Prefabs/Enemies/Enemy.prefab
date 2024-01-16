@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6543422848882811311}
-  - component: {fileID: 531266491824328732}
-  - component: {fileID: 1396672364683389191}
-  - component: {fileID: 6389810250318139560}
-  - component: {fileID: 5736325596907585634}
+  - component: {fileID: -1454938562525668309}
+  - component: {fileID: -6988161511256445743}
+  - component: {fileID: 7908689293643387202}
   - component: {fileID: 5733106388141005718}
   m_Layer: 0
   m_Name: Enemy
@@ -31,40 +30,32 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 8.87, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &531266491824328732
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7529646048056999807}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1396672364683389191
-MeshRenderer:
+--- !u!212 &-1454938562525668309
+SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7529646048056999807}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
+  m_RayTracingMode: 0
   m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 32f0718bb23e7a0459b9ff79d0dc7420, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +68,7 @@ MeshRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -85,14 +76,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6389810250318139560
-BoxCollider:
+  m_Sprite: {fileID: 21300000, guid: 9d0593545d9849d42ba99e3cb0ed7c22, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.93, y: 0.84}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!61 &-6988161511256445743
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7529646048056999807}
+  m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -101,39 +104,61 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5736325596907585634
-Rigidbody:
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.93, y: 0.84}
+    newSize: {x: 0.93, y: 0.84}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!50 &7908689293643387202
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7529646048056999807}
-  serializedVersion: 4
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
   m_Mass: 1
-  m_Drag: 0
+  m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 0
-  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_SleepingMode: 1
   m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!114 &5733106388141005718
 MonoBehaviour:
   m_ObjectHideFlags: 0

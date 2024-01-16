@@ -2,8 +2,8 @@ using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
-[RequireComponent(typeof(Collider))]
-[RequireComponent (typeof(Rigidbody))]
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent (typeof(Rigidbody2D))]
 public class Damageable : MonoBehaviour
 {
     [SerializeField] protected float health;
