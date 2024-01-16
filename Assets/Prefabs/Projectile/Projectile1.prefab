@@ -173,4 +173,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletSpeed: 10
   bulletDamage: 20
-  cooldownCount: 0.3
+  cooldownCount: 0.5
