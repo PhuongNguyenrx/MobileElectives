@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 80
+  score: 10
   damagedMaterial: {fileID: 2100000, guid: 13a3d79dc375e96469d98997f4ebd571, type: 2}
   originalMaterial: {fileID: 2100000, guid: 32f0718bb23e7a0459b9ff79d0dc7420, type: 2}
   possibleLoots:

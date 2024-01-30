@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 public class Lootable : Damageable
@@ -15,6 +16,7 @@ public class Lootable : Damageable
             var droppedItem = GetDroppedItem();
             if (droppedItem != null)
                 Instantiate(droppedItem.gameObject, transform.position, Quaternion.identity);
+            GameManager.Instance.score += score;
         }
         GameManager.Instance.enemyOnScreen.Remove(transform);
         GameManager.Instance.EnemyCheck();

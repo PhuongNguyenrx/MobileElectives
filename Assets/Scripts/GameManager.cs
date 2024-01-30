@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +11,10 @@ public class GameManager : MonoBehaviour
     public List<Transform> enemyOnScreen;
     public int minEnemiesCount;
     public int maxEnemiesCount;
+    
+    public int score;
+    public TextMeshProUGUI scoreText;
+
     private void Awake()
     {
         if (Instance == null)
@@ -34,9 +40,24 @@ public class GameManager : MonoBehaviour
 
     public void EnemyCheck()
     {
+        scoreText.text = score.ToString();
         var enemyToSpawn = Random.Range(minEnemiesCount, maxEnemiesCount);
         if (enemyOnScreen.Count<=0)
             for (int i = 0; i < enemyToSpawn; i++)
                 SpawnEnemy();
+    }
+    public void GameOver()
+    {
+
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void ExtraLife()
+    {
+
     }
 }

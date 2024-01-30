@@ -7,9 +7,10 @@ using UnityEngine;
 public class Damageable : MonoBehaviour
 {
     [SerializeField] protected float health;
+    [SerializeField] protected int score;
     [SerializeField] Material damagedMaterial;
     [SerializeField] Material originalMaterial;
-    
+
     public void Damaged(float damage)
     {
         health -= damage;
@@ -24,6 +25,7 @@ public class Damageable : MonoBehaviour
 
     public virtual void Die()
     {
+        GameManager.Instance.score += score;
         GameManager.Instance.enemyOnScreen.Remove(transform);
         GameManager.Instance.EnemyCheck();
         Destroy(gameObject);
