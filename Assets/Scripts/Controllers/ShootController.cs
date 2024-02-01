@@ -33,6 +33,6 @@ public class ShootController
     public void ReduceReload(float reloadTime) => projectile.powerup.reloadBoost += reloadTime;
     void Shoot()
     {
-        GameObject.Instantiate(projectile, ownerObject.position, Quaternion.identity);
+        var instantiatedProjectile = GameObject.Instantiate(projectile, ownerObject.position, Quaternion.identity);
     }
 }

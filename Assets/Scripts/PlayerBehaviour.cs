@@ -11,11 +11,13 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] float speed = 5;
     List<ShootController> shootControllers = new();
     MovementController movementController;
+    Animator animator;
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         Input.multiTouchEnabled = false;
-        movementController = new MovementController(transform,speed);
+        movementController = new MovementController(this.transform,speed);
         foreach (var t in projectiles)
         {
             shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform));
@@ -24,6 +26,8 @@ public class PlayerBehaviour : MonoBehaviour
 
     void Update()
     {
+        //if (health <= 0)
+        //    return;
         movementController.HandleMovementInput();
         foreach(var shootController in shootControllers)
         {
@@ -53,5 +57,28 @@ public class PlayerBehaviour : MonoBehaviour
             shootController.ReduceReload(reloadTime);
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Damaged(10);
+    }
+
+    public void Damaged(float damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            Die();
+            return;
+        }
+        //Play sound here
+    }
+
     public void IncreaseHealth(float healthToIncrease) => health += healthToIncrease;
+
+    void Die()
+    {
+        animator.Play("Player_Die");
+        GameManager.Instance.GameOver();
+    }
 }
