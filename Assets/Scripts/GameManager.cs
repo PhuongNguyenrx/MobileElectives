@@ -1,8 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class GameManager : MonoBehaviour
 
     bool isPause = false;
     public GameObject startMenu;
+    public GameObject endMenu;
+
+    public static Action OnExtraLife;
 
     private void Awake()
     {
@@ -41,15 +45,15 @@ public class GameManager : MonoBehaviour
     }
     void SpawnEnemy()
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(-3,3), 9, 0);
-        var enemyPrefab = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], spawnPosition, Quaternion.identity);
+        Vector3 spawnPosition = new Vector3(UnityEngine.Random.Range(-3,3), 9, 0);
+        var enemyPrefab = Instantiate(enemyPrefabs[UnityEngine.Random.Range(0, enemyPrefabs.Count)], spawnPosition, Quaternion.identity);
         enemyOnScreen.Add(enemyPrefab);
     }
 
     public void EnemyCheck()
     {
         scoreText.text = score.ToString();
-        var enemyToSpawn = Random.Range(minEnemiesCount, maxEnemiesCount);
+        var enemyToSpawn = UnityEngine.Random.Range(minEnemiesCount, maxEnemiesCount);
         if (enemyOnScreen.Count<=0)
             for (int i = 0; i < enemyToSpawn; i++)
                 SpawnEnemy();
@@ -69,7 +73,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
-
+        endMenu.SetActive(true);
     }
 
     public void RestartGame()
@@ -79,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     public void ExtraLife()
     {
-
+        endMenu.SetActive(false);
+        OnExtraLife?.Invoke();
     }
 }

@@ -7,8 +7,8 @@ using UnityEngine;
 public class PlayerBehaviour : MonoBehaviour
 {
     [SerializeField] List<Transform> projectiles;
-    [SerializeField] float health = 100;
     [SerializeField] float speed = 5;
+    float health = 100;
     List<ShootController> shootControllers = new();
     MovementController movementController;
     Animator animator;
@@ -16,12 +16,13 @@ public class PlayerBehaviour : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        Input.multiTouchEnabled = false;
+          Input.multiTouchEnabled = false;
         movementController = new MovementController(this.transform,speed);
         foreach (var t in projectiles)
         {
             shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform));
         }
+        GameManager.OnExtraLife += ExtraLife;
     }
 
     void Update()
@@ -80,5 +81,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         animator.Play("Player_Die");
         GameManager.Instance.GameOver();
+    }
+
+    void ExtraLife()
+    {
+        movementController.Move(Vector3.zero);
+        health = 100;
     }
 }
