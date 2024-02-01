@@ -4,12 +4,12 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent (typeof(Rigidbody2D))]
+[RequireComponent(typeof(AudioSource))]
 public class Damageable : MonoBehaviour
 {
     [SerializeField] protected float health;
     [SerializeField] protected int score;
-    [SerializeField] Material damagedMaterial;
-    [SerializeField] Material originalMaterial;
+    protected AudioSource audioSource;
 
     public void Damaged(float damage)
     {
@@ -29,11 +29,12 @@ public class Damageable : MonoBehaviour
         GameManager.Instance.enemyOnScreen.Remove(transform);
         GameManager.Instance.EnemyCheck();
         Destroy(gameObject);
+        GetComponent<AudioSource>().Play();
     }
-    IEnumerator FlashDamage()
-    {
-        gameObject.GetComponent<MeshRenderer>().material = damagedMaterial;
-        yield return new WaitForSeconds(0.15f);
-        gameObject.GetComponent<MeshRenderer>().material = originalMaterial;
-    }
+    //IEnumerator FlashDamage()
+    //{
+    //    gameObject.GetComponent<MeshRenderer>().material = damagedMaterial;
+    //    yield return new WaitForSeconds(0.15f);
+    //    gameObject.GetComponent<MeshRenderer>().material = originalMaterial;
+    //}
 }

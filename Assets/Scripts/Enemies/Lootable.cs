@@ -17,7 +17,8 @@ public class Lootable : Damageable
             if (droppedItem != null)
                 Instantiate(droppedItem.gameObject, transform.position, Quaternion.identity);
             GameManager.Instance.score += score;
-        }
+            GetComponent<AudioSource>().Play();
+        }   
         GameManager.Instance.enemyOnScreen.Remove(transform);
         GameManager.Instance.EnemyCheck();
         Destroy(gameObject);
