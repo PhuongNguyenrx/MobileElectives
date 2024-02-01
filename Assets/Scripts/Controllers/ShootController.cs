@@ -9,12 +9,17 @@ public class ShootController
     Transform ownerObject;
     float shootCooldown;
     float cooldownCount;
-    public ShootController(Projectile projectile, Transform ownerObject)
+
+    AudioSource audioSource;
+    AudioClip projectileClip;
+    public ShootController(Projectile projectile, Transform ownerObject, AudioSource audioSource, AudioClip projectileClip)
     {
         this.projectile = projectile;
         this.ownerObject = ownerObject;
         cooldownCount = projectile.cooldownCount;
         shootCooldown = cooldownCount;
+        this.audioSource = audioSource;
+        this.projectileClip = projectileClip;
     }
     public void ShootCountdown()
     {
@@ -33,6 +38,9 @@ public class ShootController
     public void ReduceReload(float reloadTime) => projectile.powerup.reloadBoost += reloadTime;
     void Shoot()
     {
+        if (Time.timeScale == 0)
+            return;
+        audioSource.PlayOneShot(projectileClip);
         var instantiatedProjectile = GameObject.Instantiate(projectile, ownerObject.position, Quaternion.identity);
     }
 }

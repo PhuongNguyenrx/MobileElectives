@@ -9,18 +9,25 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] List<Transform> projectiles;
     [SerializeField] float speed = 5;
     float health = 100;
+
+    [SerializeField] AudioClip collisionClip, projectileClip;
+    AudioSource audioSource;
+
     List<ShootController> shootControllers = new();
     MovementController movementController;
     Animator animator;
+    
 
     void Start()
     {
         animator = GetComponent<Animator>();
-          Input.multiTouchEnabled = false;
+        audioSource = GetComponent<AudioSource>();
+        
+        Input.multiTouchEnabled = false;
         movementController = new MovementController(this.transform,speed);
         foreach (var t in projectiles)
         {
-            shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform));
+            shootControllers.Add(new ShootController(t.GetComponent<Projectile>(),transform, audioSource, projectileClip));
         }
         GameManager.OnExtraLife += ExtraLife;
     }
@@ -66,6 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void Damaged(float damage)
     {
+        audioSource.PlayOneShot(collisionClip);
         health -= damage;
         if (health <= 0)
         {

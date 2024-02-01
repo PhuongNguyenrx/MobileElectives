@@ -12,9 +12,11 @@ public class GameManager : MonoBehaviour
     public List<Transform> enemyOnScreen;
     public int minEnemiesCount;
     public int maxEnemiesCount;
+    int currentwave=0;
     
     public int score;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI scoreText, endScoreText, highscoreText;
+    private const string HighscoreKey = "Highscore";
 
     bool isPause = false;
     public GameObject startMenu;
@@ -31,11 +33,13 @@ public class GameManager : MonoBehaviour
         }
         else if (Instance != this)
             Destroy(gameObject);
+        DontDestroyOnLoad(this.gameObject);
     }
 
     private void Start()
     {
         SwitchGameState();
+        LoadHighscore();
     }
 
     private void Update()
@@ -53,10 +57,13 @@ public class GameManager : MonoBehaviour
     public void EnemyCheck()
     {
         scoreText.text = score.ToString();
-        var enemyToSpawn = UnityEngine.Random.Range(minEnemiesCount, maxEnemiesCount);
-        if (enemyOnScreen.Count<=0)
+        var enemyToSpawn = UnityEngine.Random.Range(minEnemiesCount + Mathf.RoundToInt(currentwave/2), maxEnemiesCount + Mathf.RoundToInt(currentwave / 2));
+        if (enemyOnScreen.Count <= 0)
+        {
             for (int i = 0; i < enemyToSpawn; i++)
                 SpawnEnemy();
+            currentwave++;
+        }
     }
 
     void SwitchGameState()
@@ -74,6 +81,20 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         endMenu.SetActive(true);
+        endScoreText.text = score.ToString();
+
+        int currentHighscore = PlayerPrefs.GetInt(HighscoreKey, 0);
+        if (score > currentHighscore)
+        {
+            PlayerPrefs.SetInt(HighscoreKey, score);
+            PlayerPrefs.Save();
+        }
+    }
+
+    private void LoadHighscore()
+    {
+        int highscore = PlayerPrefs.GetInt(HighscoreKey, 0);
+        highscoreText.text = highscore.ToString();
     }
 
     public void RestartGame()
