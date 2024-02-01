@@ -20,6 +20,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
 
         // Disable the button until the ad is ready to show:
         _showAdButton.interactable = false;
+        LoadAd();
     }
 
     // Call this public method when you want to get an ad ready to show.
@@ -59,6 +60,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
         if (adUnitId.Equals(_adUnitId) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
             Debug.Log("Unity Ads Rewarded Ad Completed");
+            GameManager.Instance.ExtraLife();
             // Grant a reward.
         }
     }
