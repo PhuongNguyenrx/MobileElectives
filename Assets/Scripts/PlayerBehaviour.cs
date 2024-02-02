@@ -93,7 +93,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     void ExtraLife()
     {
-        movementController.Move(Vector3.zero);
+        movementController.Move(new Vector3(0, 3, 0)) ;
         health = 100;
     }
 }

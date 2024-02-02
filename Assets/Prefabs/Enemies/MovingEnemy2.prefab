@@ -172,13 +172,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23fa5b54b5db574fbd0b612e37317fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 120
+  health: 200
   score: 10
-  damagedMaterial: {fileID: 2100000, guid: 13a3d79dc375e96469d98997f4ebd571, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 32f0718bb23e7a0459b9ff79d0dc7420, type: 2}
   possibleLoots:
   - {fileID: -721414600731160017, guid: d89839b2184d4d24e963e07ad596f799, type: 3}
-  - {fileID: -721414600731160017, guid: 50c9179116bfff940b41c62c06c8d36a, type: 3}
+  - {fileID: -721414600731160017, guid: ee027cf6b1fd95042802769d2d88ec46, type: 3}
   directionChangeInterval: 2.5
   moveSpeed: 2
 --- !u!82 &4449682463930192503

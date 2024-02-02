@@ -171,6 +171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9bc9d235bf45e14a866cdcabdcb91e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 20
-  addedStats: 20
+  dropChance: 10
+  addedStats: 10
   lootEffect: 2

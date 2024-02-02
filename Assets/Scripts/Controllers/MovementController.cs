@@ -25,5 +25,11 @@ public class MovementController
     }
     public void Move(Vector3 destination) => ownerTransform.position = destination;
     public void DirectionalMove(Vector3 dir) => ownerTransform.position += dir * moveSpeed * Time.deltaTime;
-    public void MoveTowards(Vector3 destination) => ownerTransform.position = Vector3.MoveTowards(ownerTransform.position, destination, moveSpeed   * Time.deltaTime);
+    public void MoveTowards(Vector3 destination)
+    {
+        var screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+        var clampedX = Mathf.Clamp(destination.x, -screenBounds.x , screenBounds.x);
+        float clampedY = Mathf.Clamp(destination.y, -screenBounds.y, screenBounds.y);
+        ownerTransform.position = Vector3.MoveTowards(ownerTransform.position, new Vector3(clampedX, clampedY, destination.z), moveSpeed * Time.deltaTime);
+    }
 }

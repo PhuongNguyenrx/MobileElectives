@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9d0593545d9849d42ba99e3cb0ed7c22, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff9dc9d6493bb794fa366e02bca76b4e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -124,7 +124,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 0.84}
+    oldSize: {x: 0.97, y: 0.84}
     newSize: {x: 0.93, y: 0.84}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -174,11 +174,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   score: 10
-  damagedMaterial: {fileID: 2100000, guid: 13a3d79dc375e96469d98997f4ebd571, type: 2}
-  originalMaterial: {fileID: 2100000, guid: 32f0718bb23e7a0459b9ff79d0dc7420, type: 2}
   possibleLoots:
   - {fileID: -721414600731160017, guid: d89839b2184d4d24e963e07ad596f799, type: 3}
-  - {fileID: -721414600731160017, guid: 50c9179116bfff940b41c62c06c8d36a, type: 3}
+  - {fileID: -721414600731160017, guid: df7c79f30631a4040839979dd8ebc956, type: 3}
   directionChangeInterval: 1.4
   moveSpeed: 5
 --- !u!82 &944049714335878297
